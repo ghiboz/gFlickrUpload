@@ -39,13 +39,20 @@
             <Label x:Name="lblCount" Content="..." Margin="139,169,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
             <Label x:Name="lblBytes" Content="..." Margin="139,215,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
             <CheckBox x:Name="ckbPause" Content="Pause" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" ToolTip="Pause upload when the actual ends"/>
-            <Button Width="50" Height="50" Margin="457,238,10,64" Style="{DynamicResource MetroCircleButtonStyle}" Click="Button_Click" ToolTip="Start upload">
+            <Button Width="50" Height="50" Margin="357,238,10,64" Style="{DynamicResource MetroCircleButtonStyle}" Click="Button_Click" ToolTip="Start upload">
                 <Rectangle Width="30" Height="20">
                     <Rectangle.Fill>
                         <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cloud_upload}" />
                     </Rectangle.Fill>
                 </Rectangle>
             </Button>
+            <Button Width="50" Height="50" Margin="457,238,10,64" Style="{DynamicResource MetroCircleButtonStyle}" Click="Button_Click_2" ToolTip="Start download">
+                <Rectangle Width="30" Height="20">
+                    <Rectangle.Fill>
+                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cloud_download}" />
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Button>            
             <Button x:Name="btnSetsFolder" Content="..." Margin="480,47,0,0" VerticalAlignment="Top" Click="btnSetsFolder_Click" HorizontalAlignment="Left" Width="27"/>
             <Button x:Name="btnCopyFolder" Content="..." Margin="480,106,0,0" VerticalAlignment="Top" Click="btnCopyFolder_Click" HorizontalAlignment="Left" Width="27"/>
             <Label x:Name="lblSet" Content="..." Margin="83,252,66,0" VerticalAlignment="Top" HorizontalContentAlignment="Left"/>

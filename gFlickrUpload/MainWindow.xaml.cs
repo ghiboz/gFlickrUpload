@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Diagnostics;
+using System.Net;
 
 namespace gFlickrUpload
 {
@@ -537,6 +538,37 @@ namespace gFlickrUpload
         {
             // paypal //
             Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S8LZW7C3BPJF6");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            // download!
+            PhotosetCollection sets = flickr.PhotosetsGetList(userID);
+            foreach (var item in sets)
+            {
+                var newFolder = $"{Properties.Settings.Default.FlickrFolder}\\{item.Title}";
+                if (!Directory.Exists(newFolder))
+                {
+                    Directory.CreateDirectory(newFolder);
+                }
+                var photos = flickr.PhotosetsGetPhotos(item.PhotosetId);
+                foreach (var photo in photos)
+                {
+                    var url = photo.OriginalUrl;
+                    using (WebClient client = new WebClient())
+                    {
+                        client.DownloadFile(new Uri(url), $@"{newFolder}\{photo.Title}.jpg");
+                    }
+                }
+                /*
+                PhotoSearchOptions o = new PhotoSearchOptions();
+                o.Extras = PhotoSearchExtras.AllUrls | PhotoSearchExtras.Description | PhotoSearchExtras.OwnerName;
+                o.SortOrder = PhotoSearchSortOrder.Relevance;
+                */
+                //o.Tags = textBox1.Text;
+
+                return;
+            }
         }
     }
 }
