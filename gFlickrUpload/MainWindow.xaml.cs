@@ -520,8 +520,8 @@ namespace gFlickrUpload
                     else
                     {
                         BW_PhotosetID = sets[setFound].PhotosetId;
-                        flickr.PhotosetsAddPhoto(BW_PhotosetID, BW_PhotoID);
                     }
+                    flickr.PhotosetsAddPhoto(BW_PhotosetID, BW_PhotoID);
                 }
                 else
                 {
