@@ -225,8 +225,9 @@ namespace gFlickrUpload
             {
                 string[] sElements = sDir.Split('\\');
 
+                var folder = sFolderBase + sElements[sElements.Length - 1];
                 // controllo se è vuota
-                int nFilesInDir = getFilesCount(sFolderBase + sElements[sElements.Length - 1], SearchOption.TopDirectoryOnly);
+                int nFilesInDir = getFilesCount(folder, SearchOption.TopDirectoryOnly);
                 /*
                 // controllo se è vuota
                 int nFilesInDir = (from file in Directory.EnumerateFiles(sFolderBase + sElements[sElements.Length - 1], "*.*", SearchOption.TopDirectoryOnly)
@@ -235,6 +236,14 @@ namespace gFlickrUpload
                 if (nFilesInDir > 0)
                 {
                     sRet.Add(sElements[sElements.Length - 1]);
+                }
+                else
+                {
+                    // provo a cancellare la cartella
+                    if (Directory.GetFiles(folder).Length == 0)
+                    {
+                        Directory.Delete(folder);
+                    }
                 }
             }
 
