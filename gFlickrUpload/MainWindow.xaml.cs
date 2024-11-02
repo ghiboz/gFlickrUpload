@@ -45,6 +45,10 @@ namespace gFlickrUpload
         int MAX_RETRY = 3;
         int nRetry = 0;
 
+        string[] extensions = { ".jpg", ".avi", ".mp4", ".mpg", ".mov", ".jpeg", ".mpeg", ".png",
+                                ".JPG", ".AVI", ".MP4", ".MPG", ".MOV", ".JPEG", ".MPEG", ".PNG"};
+
+
         private readonly BackgroundWorker worker = new BackgroundWorker();
 
         public MainWindow()
@@ -297,9 +301,6 @@ namespace gFlickrUpload
         {
             if (useOnlyFileName)
             {
-                string[] extensions = { ".jpg", ".avi", ".mp4", ".mpg", ".mov", ".jpeg",
-                                        ".JPG", ".AVI", ".MP4", ".MPG", ".MOV", ".JPEG" };
-
                 var filteredFiles = Directory
                     .EnumerateFiles(sDirectory, "*", SearchOption.AllDirectories)
                     .Select(System.IO.Path.GetFileName)
@@ -363,9 +364,6 @@ namespace gFlickrUpload
                )
            .Count();
             */
-            string[] extensions = { ".jpg", ".avi", ".mp4", ".mpg", ".mov", ".jpeg",
-                                    ".JPG", ".AVI", ".MP4", ".MPG", ".MOV", ".JPEG"};
-
             var filenames4 = Directory
                 .EnumerateFiles(sDirectory, "*", SearchOption.AllDirectories)
                 .Select(System.IO.Path.GetFileName)
