@@ -45,8 +45,8 @@ namespace gFlickrUpload
         int MAX_RETRY = 3;
         int nRetry = 0;
 
-        string[] extensions = { ".jpg", ".avi", ".mp4", ".mpg", ".mov", ".jpeg", ".mpeg", ".png", ".gif",
-                                ".JPG", ".AVI", ".MP4", ".MPG", ".MOV", ".JPEG", ".MPEG", ".PNG", ".GIF"};
+        string[] extensions = { ".jpg", ".avi", ".mp4", ".mpg", ".mov", ".jpeg", ".mpeg", ".png", ".gif", ".m4v",
+                                ".JPG", ".AVI", ".MP4", ".MPG", ".MOV", ".JPEG", ".MPEG", ".PNG", ".GIF", ".M4V"};
 
 
         private readonly BackgroundWorker worker = new BackgroundWorker();
