@@ -278,6 +278,11 @@ namespace gFlickrUpload
                 // Get the PropertyItems property from image.
                 PropertyItem[] propItems = image.PropertyItems;
                 System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+                var item = propItems[0];
+                if (item.Len <= 1)
+                {
+                    return "";
+                }
                 string description = encoding.GetString(propItems[0].Value);
                 description = description.Trim();
                 description = description.Replace("\0", "");
